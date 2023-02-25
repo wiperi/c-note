@@ -1,3 +1,4 @@
+// 定义一个函数来计算整数的指数幂
 #include <stdio.h>
 
 void calculate_exponent(int BasicNumber,int exponent);

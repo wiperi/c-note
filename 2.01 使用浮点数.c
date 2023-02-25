@@ -1,3 +1,4 @@
+// 这是一个BMI计算器
 #include <stdio.h>
 
 int main()
