@@ -1,3 +1,4 @@
+// 用for函数实现
 # include <stdio.h>
 void sm(void);
 
