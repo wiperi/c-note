@@ -3,10 +3,10 @@
 
 int main(void)
 {
-    float x = 0, n = 1, t = 1;
-    scanf("%f", &x);
+    double x = 0, n = 1, t = 1;
+    scanf("%lf", &x);
 
-    float i = (x / n);
+    double i = (x / n);
 
     while ((x/n) < 1 || (x/n) >= 10)
     {
