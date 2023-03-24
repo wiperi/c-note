@@ -4,7 +4,7 @@
 int main(void)
 {
     double x = 0, n = 1, t = 1;
-    scanf("%lf", &x);
+    scanf("%lf", &x); //double类型在scanf中用%lf，在printf中用%f
 
     double i = (x / n);
 
