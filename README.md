@@ -1,2 +1,2 @@
 # Welcome
-This is a code repo for training and studing
+This is a code repositary for training and studing
