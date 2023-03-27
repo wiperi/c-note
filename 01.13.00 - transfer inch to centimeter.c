@@ -4,7 +4,7 @@ int main()
 {
     double inch, centimeter;
 
-    printf("please input the value of inches：");
+    printf("please input the value of inches:");
     scanf("%lf", &inch);
 
     centimeter = inch * 2.54;
