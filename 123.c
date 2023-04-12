@@ -39,13 +39,13 @@ void copy_arr(double target[], double source[], int arrSize) {
 void copy_ptr(double *target, double *source, int arrSize) {
     for (int i = 0; i <= arrSize; i++) {
         *(target + i) = *(source + i);
-        printf("%.2f/", *(target+i));
+        printf("%.2f/", *(target + i));
     }
 }
 
 void copy_ptrs(double target[], double source[], double *end) {
     int i = 0;
-    while(source < end){
+    while (source < end) {
         target[i] = source[i];
         printf("%.2f/", target[i]);
         i++;
