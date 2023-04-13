@@ -49,6 +49,11 @@ void copy_ptr(double *target, double *source, int arrSize) {
     }
 }
 
-void copy_ptrs(double target[], double source[], double *end) {
-    
+void copy_ptrs(double *target, double *source, double *end) {
+    while (source < end) {
+        *target = *source;
+        printf("%.2f,", *target);
+        source++;
+        target++;
+    }
 }
