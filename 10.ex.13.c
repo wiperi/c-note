@@ -16,8 +16,9 @@ e.打印结果
 #include <stdio.h>
 #define ROWS 3
 #define COLS 5
-double calcu_averge(int rows, int (*arr)[COLS]);
+double calcu_averge(int rows, double (*arr)[COLS]);
 void input_array(int rows, double arr[][COLS]);
+double find_the_maxnum(int rows, int cols, double arr[rows][cols]);
 
 int main(void) {
     printf(
@@ -25,7 +26,10 @@ int main(void) {
         "point numbers\n");
     double arr[ROWS][COLS];
     input_array(ROWS, arr);
-    printf("%.2f", calcu_averge(0, arr));
+    for (int i = 0; i < ROWS; i++) {
+        printf("averge of arr[%d][] is %.2f\n", i, calcu_averge(i, arr));
+    }
+    printf("%.2f", find_the_maxnum(ROWS, COLS, arr));
 }
 
 void input_array(int rows, double (*arr)[COLS]) {
@@ -47,10 +51,19 @@ void input_array(int rows, double (*arr)[COLS]) {
         printf("}\n");
     }
 }
-double calcu_averge(int rows, int (*arr)[COLS]) {
+double calcu_averge(int rows, double (*arr)[COLS]) {
     double total = 0;
     for (int i = 0; i < COLS; i++) {
         total += arr[rows][i];
     }
     return total / COLS;
+}
+double find_the_maxnum(int rows, int cols, double arr[rows][cols]) {
+    double max = 0;
+    for (int x = 0; x < rows; x++) {  
+        for (int y = 0; y < cols; y++) {
+            if(max < arr[x][y]) {max = arr[x][y];}
+        }
+    }
+    return max;
 }
