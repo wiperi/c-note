@@ -1,7 +1,6 @@
 /*
 13.编写一个程序，提示用户输入3组数，每组数包含5个double类型的数
 （假设用户都正确地响应，不会输入非数值数据）。该程序应完成下列任
-735
 务。
 a.把用户输入的数据储存在3×5的数组中
 b.计算每组（5个）数据的平均值
@@ -17,5 +16,23 @@ e.打印结果
 #include <stdio.h>
 
 int main(void) {
-    printf("Please input 3 groups of numbers. Each groups contains 5 double float point numbers")
+    printf(  // 提示用户输入三组数组
+        "Please input 3 groups of numbers. Each groups contains 5 double float "
+        "point numbers");
+    double arr[3][5];
+    for (int x = 0; x < 3; x++) {  // 运行15次scanf读取用户输入
+        for (int y = 0; y < 5; y++) {
+            printf("arr[%d][%d] = ", x, y);
+            scanf("%lf", &arr[x][y]);
+            printf("\n");
+        }
+    }
+    for (int x = 0; x < 3; x++) {  // 打印数组
+        printf("arr[%d] = {", x);
+        for (int y = 0; y < 5; y++) {
+            printf("%.2f,", arr[x][y]);
+        }
+        printf("}\n");
+    }
 }
+
