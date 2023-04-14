@@ -14,25 +14,43 @@ e.打印结果
 */
 
 #include <stdio.h>
+#define ROWS 3
+#define COLS 5
+double calcu_averge(int rows, int (*arr)[COLS]);
+void input_array(int rows, double arr[][COLS]);
 
 int main(void) {
-    printf(  // 提示用户输入三组数组
+    printf(
         "Please input 3 groups of numbers. Each groups contains 5 double float "
-        "point numbers");
-    double arr[3][5];
-    for (int x = 0; x < 3; x++) {  // 运行15次scanf读取用户输入
-        for (int y = 0; y < 5; y++) {
+        "point numbers\n");
+    double arr[ROWS][COLS];
+    input_array(ROWS, arr);
+    printf("%.2f", calcu_averge(0, arr));
+}
+
+void input_array(int rows, double (*arr)[COLS]) {
+    for (int x = 0; x < rows; x++) {  // 运行15次scanf读取用户输入
+        for (int y = 0; y < COLS; y++) {
             printf("arr[%d][%d] = ", x, y);
             scanf("%lf", &arr[x][y]);
             printf("\n");
         }
     }
-    for (int x = 0; x < 3; x++) {  // 打印数组
+    for (int x = 0; x < rows; x++) {  // 打印数组
         printf("arr[%d] = {", x);
-        for (int y = 0; y < 5; y++) {
-            printf("%.2f,", arr[x][y]);
+        for (int y = 0; y < COLS; y++) {
+            printf("%.2f", arr[x][y]);
+            if (y < COLS - 1) {
+                printf(", ");
+            }
         }
         printf("}\n");
     }
 }
-
+double calcu_averge(int rows, int (*arr)[COLS]) {
+    double total = 0;
+    for (int i = 0; i < COLS; i++) {
+        total += arr[rows][i];
+    }
+    return total / COLS;
+}
