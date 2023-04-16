@@ -58,7 +58,7 @@ double calcu_averge(int rows, double (*arr)[COLS]) {
     }
     return total / COLS;
 }
-double find_the_maxnum(int rows, int cols, double arr[rows][cols]) {
+double find_the_maxnum(int rows, int cols, double arr[rows][cols]) { // 使用VLA数组的声明方式
     double max = 0;
     for (int x = 0; x < rows; x++) {  
         for (int y = 0; y < cols; y++) {
