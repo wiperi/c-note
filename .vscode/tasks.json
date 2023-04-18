@@ -9,7 +9,7 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}\\bin\\${fileBasenameNoExtension}.exe"
+                "${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
                 "cwd": "c:\\Program Files\\mingw64\\bin"
