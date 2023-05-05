@@ -38,7 +38,12 @@ int check_input_and_return(void) {
         "1:Give me some beer\n"
         "2:Book a room\n"
         "3:Robbery\n");
-    while (scanf("%d", &input) != 1 ||   ((input > 3 || input < 1) && input != 0)  ) { // 本程序的精髓所在
+    
+    /*
+    下面的非命题 !(...) 是本程序的精髓所在，当然，也可以把非命题展开成下面的样子，就是非常反直觉且麻烦罢了
+    while (scanf("%d", &input) != 1 || ((input > 3 || input < 1) && input != 0)) 
+    */ 
+    while (!(scanf("%d", &input) == 1 && ((input >= 1 && input <= 3) || input == 0))) { 
         while ((ch = getchar()) != '\n') putchar(ch); // 将本行输入包括最后的换行符全部消耗掉并输出
         printf(
             " can't be recognized or is not defined. Please input other "
