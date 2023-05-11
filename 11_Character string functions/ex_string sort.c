@@ -27,6 +27,7 @@ void getstr(char ar[][STRLEN]) {
     int i = 0;
     while (i < LIM && printf("getting the %d string\n", i + 1) &&
            fgets(ar[i], STRLEN, stdin)) {
+
         int j = 0;
         while (ar[i][j] != '\n' && ar[i][j] != '\0') { // 找到最后的字符的位置
             printf("%c\n", ar[i][j]);
