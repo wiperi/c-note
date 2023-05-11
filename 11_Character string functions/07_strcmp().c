@@ -1,4 +1,7 @@
 /* compare.c -- 该程序可以正常运行 */
+
+// strcmp函数比较两个字符串，逐个字符进行比较，将第一个字符串中的字符的ASCII值减去第二个的值，然后是0那就比较下一个字符
+
 #include <stdio.h>
 #include <string.h>  // strcmp()函数的原型在该头文件中
 #define ANSWER "Grant"
