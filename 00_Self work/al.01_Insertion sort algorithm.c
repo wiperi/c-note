@@ -5,23 +5,20 @@
 
 int main(void) {
     int arr[5] = {3, 2, 1, 5, 4};
-    int cache;
-    // 将第i个元素排序，得到一个数组，前i + 1个元素为有序，后面为无序
+    int buffer;
     for (int i = 1; i < 5; i++) {
-        // 将要排序的元素放入flag中
-        cache = arr[i];
-        // 将被排序元素和它之前的每一个元素进行比较，以确定被排序元素的插入位置
+        buffer = arr[i];
         for (int j = i - 1; j >= 0; j--) {
-            if (arr[j] > cache) {
+            if (arr[j] > buffer) {
                 if (j == 0) {
                     arr[j + 1] = arr[j];
-                    // 若arr[j] > cache且j == 0，则直接将cache放入arr[0]中
-                    arr[j] = cache;
+                    // 若arr[j] > cache且j == 0，则直接将buffer放入arr[0]中
+                    arr[j] = buffer;
                 } else {
                     arr[j + 1] = arr[j];
                 }
-            } else { // 若arr[j] <= cache;
-                arr[j + 1] = cache;
+            } else { // 若arr[j] <= buffer;
+                arr[j + 1] = buffer;
                 break;
             }
         }
