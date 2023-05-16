@@ -8,15 +8,13 @@ void SequentialSearchAlgorithm(int* arr, int arr_size, int target_value) {
         while (target_value > arr[i] && i < arr_size) {
             i++;
         }
-
-        if (i < arr_size) {
+        if (target_value == arr[i]) {
             printf("search success\n");
         } else {
             printf("target value didn't appear\n");
         }
     }
 }
-
 void InsertionSortAlgorithm(int* arr, int arr_size) {
     int buffer;
     int i = 1;
@@ -31,8 +29,9 @@ void InsertionSortAlgorithm(int* arr, int arr_size) {
         i++;
     }
 }
-
-// a bad version
+/**
+ * 一个糟糕的版本，解决问题的逻辑有问题导致了糟糕的代码结构
+ */
 void InsertionSortAlgorithm1(int* arr, int arr_size) {
     int buffer;
     int i = 1;
@@ -57,17 +56,9 @@ void InsertionSortAlgorithm1(int* arr, int arr_size) {
         i++;
     }
 }
-
-void PrintArray(int* arr, int arr_size) {
-    printf("[");
-    for (int i = 0; i < arr_size; i++) {
-        if (i != arr_size - 1)
-            printf("%d, ", arr[i]);
-        else
-            printf("%d]\n", arr[i]);
-    }
-}
-
+/**
+ * 该版本将中位数定义为中间靠右的那个数
+ */
 int BinarySearch(int* arr, int left, int right, int target_value) {
     if (left <= right) {
         int middle = left + ((right - left) + 1) / 2;
@@ -82,7 +73,9 @@ int BinarySearch(int* arr, int left, int right, int target_value) {
         return -1;
     }
 }
-
+/**
+ * 该版本将中位数定义为中间靠左的那个数
+ */
 int BinarySearchV2(int* arr, int left, int right, int target_value) {
     if (left <= right) {
         int middle = (left + right) / 2;
@@ -97,7 +90,15 @@ int BinarySearchV2(int* arr, int left, int right, int target_value) {
         return -1;
     }
 }
-
+void PrintArray(int* arr, int arr_size) {
+    printf("[");
+    for (int i = 0; i < arr_size; i++) {
+        if (i != arr_size - 1)
+            printf("%d, ", arr[i]);
+        else
+            printf("%d]\n", arr[i]);
+    }
+}
 int main(void) {
     int arr[] = {1, 2, 5, 7, 7};
     int arr_size = sizeof(arr) / sizeof(arr[0]);
