@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void SequentialSearchAlgorithm(int* arr, int arr_size, int target_value) {
     if (arr_size == 0) {
@@ -98,12 +99,29 @@ int BinarySearchV2(int* arr, int left, int right, int target_value) {
     }
 }
 
+void SelectionSort(int* arr, int arr_size) {
+    int buffer;
+    for (int i = 0; i < arr_size - 1; i++) {
+        for (int j = i + 1; j < arr_size; j++) {
+            if (arr[j] < arr[i]) {
+                buffer = arr[i];
+                arr[i] = arr[j];
+                arr[j] = buffer;
+            }
+        }
+    }
+}
+
 int main(void) {
-    int arr[] = {1, 2, 5, 7, 7};
+    int arr[] = {6,4,3,1,1};
     int arr_size = sizeof(arr) / sizeof(arr[0]);
 
-    SequentialSearchAlgorithm(arr, arr_size, 3);
-    InsertionSortAlgorithm1(arr, arr_size);
+    if (0) {
+        SequentialSearchAlgorithm(arr, arr_size, 3);
+        InsertionSortAlgorithm1(arr, arr_size);
+        printf("%d\n", BinarySearchV2(arr, 0, arr_size - 1, 30));
+    }
+    SelectionSort(arr, arr_size);
     PrintArray(arr, arr_size);
-    printf("%d\n", BinarySearch1(arr, 0, arr_size - 1, 30));
+    
 }
