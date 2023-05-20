@@ -94,6 +94,7 @@ int main(void) {
     // 读取用户输入
     int i = 0;
     while (i < LIM) {
+        printf("Input the %dth string of total %d.\n", i + 1, LIM);
         if (GetString(words[i], STRLEN)) {
             i++;
         } else {
@@ -102,6 +103,7 @@ int main(void) {
             continue;
         }
     }
+    puts("\n");
 
     SortStringArray(words, LIM, 1);
     PrintStringArray(words, LIM);
