@@ -1,9 +1,7 @@
 /* 程序清单9 .10 hotel.c函数支持模块 */
 /* hotel.c -- 酒店管理函数 */
-#include "03_hotel.h"
-#include "03_usehotel.c"
-
 #include <stdio.h>
+#include "03_hotel.h"
 int menu(void) {
     int code, status;
     printf("\n%s%s\n", STARS, STARS);

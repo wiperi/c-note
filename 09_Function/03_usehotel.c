@@ -2,8 +2,8 @@
 /* usehotel.c -- 房间费率程序 */
 /* 与程序清单9.10一起编译 */
 #include <stdio.h>
-
 #include "03_hotel.h" /* 定义符号常量，声明函数 */
+
 int main(void) {
     int nights;
     double hotel_rate;
