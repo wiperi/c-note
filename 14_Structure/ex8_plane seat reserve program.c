@@ -50,23 +50,15 @@ void showListOfEmptySeats(seat plane[], int number_of_seats) {
 
 // c) Show alphabetical list of seats
 void showAlphabeticalListOfSeats(seat plane[], int number_of_seats) {
-    // Count the number of booked seats
-    int count = 0;
+    // Create a ptr array
+    seat *ptr[number_of_seats];
     for (int i = 0; i < number_of_seats; i++) {
-        if (plane[i].isbooked)
-            count++;
-    }
-
-    // Create a ptr array storing pointer pointing to the not empty seats
-    seat *ptr[count];
-    for (int i = 0; i < number_of_seats; i++) {
-        if (plane[i].isbooked)
-            ptr[i] = &plane[i];
+        ptr[i] = &plane[i];
     }
 
     // Use insertion sort to sort the ptr array
     seat *buffer;
-    for (int i = 1; i < count; i++) {
+    for (int i = 1; i < number_of_seats; i++) {
         buffer = ptr[i];
         int compare_entry = i - 1;
         while (compare_entry >= 0 && strcmp(ptr[compare_entry]->register_first_name, buffer->register_first_name) > 0) {
@@ -76,14 +68,11 @@ void showAlphabeticalListOfSeats(seat plane[], int number_of_seats) {
         ptr[compare_entry + 1] = buffer;
     }
 
-    if (count == 0) {
-        puts("List is empty now.");
-        return;
-    }
-
     puts("List of Seats in order are :");
-    for (int i = 0; i < count; i++) {
-        printf("%s\n", ptr[i]->register_first_name);
+    for (int i = 0; i < number_of_seats; i++) {
+        if (ptr[i]->isbooked) {
+            printf("%s\n", ptr[i]->register_first_name);
+        }
     }
     puts("End.");
 }
@@ -141,13 +130,14 @@ int main(void) {
     do {
         puts("****************************************************");
         puts("To choose a function, enter its letter label:");
-        printf("a) Show number of empty seats\n"
-               "b) Show list of empty seats\n"
-               "c) Show alphabetical list of seats\n"
-               "d) Assign a customer to a seat assignment\n"
-               "e) Delete a seat assignment\n"
-               "f) Quit\n");
-        
+        printf(
+            "a) Show number of empty seats\n"
+            "b) Show list of empty seats\n"
+            "c) Show alphabetical list of seats\n"
+            "d) Assign a customer to a seat assignment\n"
+            "e) Delete a seat assignment\n"
+            "f) Quit\n");
+
         // Test input value
         while ((choice = getchar()) != EOF && !strchr("abcdef", choice)) {
             if (choice != '\n') {
@@ -158,33 +148,33 @@ int main(void) {
         eatLine();
 
         switch (choice) {
-        case 'a':
-            showNumberOfEmptySeats(plane, number_of_seats);
-            break;
-        case 'b':
-            showListOfEmptySeats(plane, number_of_seats);
-            break;
-        case 'c':
-            showAlphabeticalListOfSeats(plane, number_of_seats);
-            break;
-        case 'd':
-            puts("Input the first name");
-            scanf("%s", fname);
-            eatLine();
-            puts("Input the second name");
-            scanf("%s", sname);
-            eatLine();
-            assignCustomerToASeat(plane, number_of_seats, fname, sname);
-            break;
-        case 'e':
-            puts("Input seat owner's first name which you want to delete.");
-            scanf("%s", fname);
-            eatLine();
-            deleteSeatAssignment(plane, 12, fname);
-            break;
-        default:
-            puts("Default triggered. Error.");
-            break;
+            case 'a':
+                showNumberOfEmptySeats(plane, number_of_seats);
+                break;
+            case 'b':
+                showListOfEmptySeats(plane, number_of_seats);
+                break;
+            case 'c':
+                showAlphabeticalListOfSeats(plane, number_of_seats);
+                break;
+            case 'd':
+                puts("Input the first name");
+                scanf("%s", fname);
+                eatLine();
+                puts("Input the second name");
+                scanf("%s", sname);
+                eatLine();
+                assignCustomerToASeat(plane, number_of_seats, fname, sname);
+                break;
+            case 'e':
+                puts("Input seat owner's first name which you want to delete.");
+                scanf("%s", fname);
+                eatLine();
+                deleteSeatAssignment(plane, 12, fname);
+                break;
+            default:
+                puts("Default triggered. Error.");
+                break;
         }
     } while (choice != 'f');
     puts("Bye.");
