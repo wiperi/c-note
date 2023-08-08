@@ -3,3 +3,5 @@
 在函数声明的顶上添加注释，之后鼠标放在函数名成上面会自动显示注释
 
 光标右边是一个 ） 的话，再输入一次 ），会把这个括号覆盖
+
+"C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: LLVM, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Allman, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false, ColumnLimit: 0, AccessModifierOffset: -4, NamespaceIndentation: All, FixNamespaceComments: false }"
