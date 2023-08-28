@@ -3,18 +3,22 @@
 // 名变量
 #include <stdio.h>
 int main() {
-    int x = 30; // 原始的 x
+    int x = 30; // 创建原始 x
     printf("x in outer block: %d at %p\n", x, &x);
 
+    // 自定义一个块
     {
-        int x = 77; // 新的 x，隐藏了原始的 x
+        int x = 77; // 创建新的 x，它在它的作用域，也就是这个块中，将一直隐藏原始的 x
         printf("x in inner block: %d at %p\n", x, &x);
     }
 
-    printf("x in outer block: %d at %p\n", x, &x);
+    printf("x in outer block: %d at %p\n", x, &x); // 在自定义块的外面，原始 x 不再被隐藏，打印的是原始 x 的值
 
-    while (x++ < 33) { // 原始的 x
-        int x = 100;   // 新的 x，隐藏了原始的 x
+    while (x++ < 33) // 此处为原始 x
+    
+    // while循环语句的循环块
+    {
+        int x = 100;   // 创建新的 x，隐藏了原始的 x
         x++;
         printf("x in while loop: %d at %p\n", x, &x);
     }
