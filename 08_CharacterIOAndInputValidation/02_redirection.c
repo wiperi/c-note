@@ -8,7 +8,7 @@ PS C:\Users\15617\Documents\92 My Github\C-Primer-Plus-handbook> Get-Content .\0
 
 Windows Command Prompt（命令提示符，cmd）支持使用 < 作为重定向操作符，可以直接使用
 终端中操作如下：
-C:\Users\15617\Documents\92 My Github\C-Primer-Plus-handbook>bin\02_redirection.exe < 08_CharacterIOAndInputValidation\02_input_file.txt
+C:\Users\15617\Documents\92 My Github\C-Primer-Plus-handbook> bin\02_redirection.exe < 08_CharacterIOAndInputValidation\02_input_file.txt
 666
 
  */
