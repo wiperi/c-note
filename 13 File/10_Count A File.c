@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
     while ((ch = getc(fp)) != EOF) { // 从fp指定的文件中获取一个字符，保存在ch中
-
+    
         putc(ch, stdout); // 与 putchar(ch); 相同
         count++;
     }
