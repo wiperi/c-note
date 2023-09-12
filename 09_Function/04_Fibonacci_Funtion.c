@@ -1,14 +1,9 @@
+// 计算第n位的Fibonacci数
+
 #include <stdio.h>
-int fibonacci_by_looping(int n);
-int fibonacci_by_recursion(int n);
-int main(void) {
-    for (int i = 0; i <= 10; i++) {
-        printf("%d\n", fibonacci_by_recursion(i));
-    }
-}
 
 /*
-思路：
+循环思路：
     如果n为0和1，则返回特殊值；
     如果n>=3，用n = 3的情况构思循环结构，需要3次计算；
     第一次计算出f(0)和f(1)的和；
@@ -34,17 +29,25 @@ int fibonacci_by_looping(int n) {
 }
 
 /*
-思路：
+递归思路：
     根据Fibonacci函数的定义，F(n) = F(n - 1) + F(n - 2)
 */
-int fibonacci_by_recursion(int n) {
-    int result;
+int fibonacci(int n) {
+
     if (n == 0) {
         return 0;
-    } else if (n == 1) {
+    }
+
+    if (n == 1 || n == 2) {
         return 1;
     } else {
-        result = fibonacci_by_recursion(n - 1) + fibonacci_by_recursion(n - 2);
-        return result;
+        return fibonacci(n - 1) + fibonacci(n - 2);
     }
 }
+
+int main(void) {
+    for (int i = 1; i <= 10; i++) {
+        printf("%d\n", fibonacci(i));
+    }
+}
+
