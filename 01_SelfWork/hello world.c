@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(int argc, char *argv[])
-{
-	printf("hello world\n");
+int main(int argc, char *argv[]) {
 	
-	system("pause");
-	
-	return 0;
+    printf("hello world\n");
+
+    system("pause");
+
+    return 0;
 }
