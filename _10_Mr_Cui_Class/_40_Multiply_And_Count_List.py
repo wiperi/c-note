@@ -21,7 +21,7 @@ def count_list(alist: list, acc: int) -> int:
         return acc
 
 
-# test module
+# module test
 listA = [3, 4, 5]
 print(f"multi_list(listA) = {multi_list(listA)}")
 print(f"count_list(listA) = {count_list(listA, 0)}")
