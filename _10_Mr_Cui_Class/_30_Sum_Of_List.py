@@ -39,10 +39,11 @@ def filter_failures(alist: list) -> list:
 
 
 # module test
-listA = [66, 77, 88, 99, 55]
-listB = [11, 22, 33]
-print(f"head(listA) = {head(listA)}")
-print(f"tail(listA) = {tail(listA)}")
-print(f"concat(listA, listB) = {concat(listA, listB)}")
-print(f"sum_of_list(listB) = {sum_of_list(listB)}")
-print(f"filter_failures = {filter_failures(listA)}")
+if __name__ == "__main__":
+    listA = [66, 77, 88, 99, 55]
+    listB = [11, 22, 33]
+    print(f"head(listA) = {head(listA)}")
+    print(f"tail(listA) = {tail(listA)}")
+    print(f"concat(listA, listB) = {concat(listA, listB)}")
+    print(f"sum_of_list(listB) = {sum_of_list(listB)}")
+    print(f"filter_failures = {filter_failures(listA)}")

@@ -6,3 +6,5 @@
 # .exe created #
 ################
 bin/
+
+*.pyc
