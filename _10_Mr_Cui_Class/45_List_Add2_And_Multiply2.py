@@ -21,5 +21,5 @@ def list_multi2(alist):
 if __name__ == "__main__":
     listA = [1, 2, 9]
     print(f"listA = {listA}")
-    print(f"multi_list(listA) = {list_add2(listA)}")
+    print(f"add_list(listA) = {list_add2(listA)}")
     print(f"multi_list(listA) = {list_multi2(listA)}")
