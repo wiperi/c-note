@@ -38,7 +38,7 @@ def filter_failures(alist: list) -> list:
         return filter_failures(alist[1:])
 
 
-# Test module
+# module test
 listA = [66, 77, 88, 99, 55]
 listB = [11, 22, 33]
 print(f"head(listA) = {head(listA)}")
