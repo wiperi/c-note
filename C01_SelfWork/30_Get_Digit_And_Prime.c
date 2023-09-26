@@ -65,6 +65,33 @@ int NumberOnPosition(int position, int number) {
     }
     return qutient;
 }
+
+// 分别打印一个整数每一位上的值
+void numbersOnEachDigit(int n) {
+    if (n == 0) {
+        printf("0");
+    }
+
+    if (n < 0) {
+        n *= -1;
+    }
+
+    int len = 10;
+    int *digit = (int *)malloc(sizeof(int) * len);
+    int i = 0;
+
+    while (n > 0) {
+        digit[i] = n % 10;
+        n /= 10;
+        i++;
+    }
+    
+    for (int j = i - 1; j >= 0; j--) {
+        printf("%d ", digit[j]);
+    }
+    free(digit);
+}
+
 /**
  * 判断输入的整数是不是质数
 */
