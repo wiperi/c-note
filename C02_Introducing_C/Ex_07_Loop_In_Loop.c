@@ -8,25 +8,21 @@ Smile!
 #include <stdio.h>
 void sm(void);
 
-int main()
-{
-    int t=3;
+int main() {
+    int t = 3;
     int n;
-    for(int i=1;i<=3;i++)
-    {
-        n=t;
-        while(n>=1)
-        {
+    for (int i = 1; i <= 3; i++) {
+        n = t;
+        while (n >= 1) {
             sm();
-            n=n-1;
+            n = n - 1;
         }
-        t=t-1;
+        t = t - 1;
     }
-    
+
     return 0;
 }
 
-void sm(void)
-{
+void sm(void) {
     printf("Smile!");
 }
