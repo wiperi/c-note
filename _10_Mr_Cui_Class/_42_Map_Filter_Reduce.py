@@ -30,27 +30,26 @@ if False:
 
 
 # reduce函数，按照reduce function将整个列表reduce成一个值
-def myReduce(func, alist):
-    if alist == []:
-        return None
-    if len(alist) == 1:
-        return head(alist)
-    return func(head(alist), myReduce(func, tail(alist)))
+def myReduce(func, alist, init=None):
+    if init == None:
+        init = head(alist)
 
-
-# 顺序反了，这是folder right
-def myReduce(func, alist):
     if tail(alist) == []:
-        return head(alist)
-    return func(head(alist), myReduce(func, tail(alist)))
+        return init
+
+    nextInit = func(init, head(tail(alist)))
+    return myReduce(func, tail(alist), nextInit)
 
 
-def myReduce(func, alist):
+# 计算顺序反了，reduce是从左往右计算，这是从右往左，这个错误版本也叫folder right，从右侧folder，reduce也叫folder left
+def myReduceFirstTryWrong(func, alist):
     if tail(alist) == []:
         return head(alist)
     return func(head(alist), myReduce(func, tail(alist)))
 
 
 if False:
-    print(reduce(lambda x, y: x + y, [1, 2, 3, 4]))
-    print(myReduce(lambda x, y: x + y, [1, 2, 3, 4]))
+    print(reduce(lambda x, y: x - y, [1, 2, 3, 4]))
+    print(myReduce(lambda x, y: x - y, [1, 2, 3, 4]))
+    print(reduce(lambda x, y: x - y, [1]))
+    print(myReduce(lambda x, y: x - y, [1]))

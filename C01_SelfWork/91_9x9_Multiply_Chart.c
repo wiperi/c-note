@@ -1,11 +1,24 @@
 #include <stdio.h>
 
-int main(void) {
-    
-    for (int i = 1; i < 10; i++) {
-        for (int j = 1; j <= i; j++) {
-            printf("%2d x %2d = %2d  ", j, i, j * i);
+void reversedTriangle(void) {
+    for (int i = 0; i < 10; i++) {
+        for (int j = i; j < 10; j++) {
+            printf("%2d*%2d\t", i, j);
         }
-        putchar('\n');
+        puts("");
     }
+}
+
+void triangle(void) {
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j <= i; j++) {
+            printf("%2d*%2d\t", i, j);
+        }
+        puts("");
+    }
+}
+
+int main(void) {
+    triangle();
+    reversedTriangle();
 }

@@ -95,7 +95,7 @@ void numbersOnEachDigit(int n) {
 /**
  * 判断输入的整数是不是质数
  */
-bool isprime(long int num) {
+bool isPrime(long int num) {
     int divisor = 2;
     while (num % divisor++ == 0) {
         return false;
@@ -103,19 +103,35 @@ bool isprime(long int num) {
     return true;
 }
 
-bool isprimeFast(long double num) {
-    double divisor = 2.0;
-    while ((sqrt(num) + 1.0) % divisor++ == 0) {
-        return false;
+bool isPrimeFast(int n) {
+    if (n <= 1) {
+        return false; // 1和负数不是质数
     }
+    if (n <= 3) {
+        return true; // 2和3是质数
+    }
+    if (n % 2 == 0 || n % 3 == 0) {
+        return false; // 如果能被2或3整除，就不是质数
+    }
+
+    int limit = (int)sqrt(n); // 使用sqrt(n)作为限制，减少循环次数
+
+    for (int i = 5; i <= limit; i += 6) {
+        if (n % i == 0 ||
+            n % (i + 2) ==
+                0) { // 6k±1定理，即质数要么是6的倍数加1，要么是6的倍数减1。因此，它只检查6的倍数附近的整数，避免了不必要的检查
+            return false;
+        }
+    }
+
     return true;
 }
 
-bool isPrimeRecur(long int num) {
-
+bool isPrimeRecursive(long int num) {
+    
 }
 
 int main(void) {
-    printf("%d", isprime(2));
-    printf("%d", isprimeFast(2));
+    printf("%d\n", isPrime(2));
+    printf("%d\n", isPrimeFast(2));
 }
