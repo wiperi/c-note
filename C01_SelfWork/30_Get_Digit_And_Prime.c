@@ -5,8 +5,8 @@
  * 3，判断它是不是质数
  */
 #include <math.h>
-#include <stdio.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 /**
  * 该函数计算输入的十进制整数有几位
@@ -48,7 +48,7 @@ int NumberOnPosition(int position, int number) {
      * 123 / 10^(3-1) = 1 - 23
      * 23  / 10^(3-2) = 2 - 3
      * 3   / 10^(3-3) = 3 - 0
-     * 
+     *
      * 经过3次计算后，123的第3位是3
      */
     if (number < 0) {
@@ -85,7 +85,7 @@ void numbersOnEachDigit(int n) {
         n /= 10;
         i++;
     }
-    
+
     for (int j = i - 1; j >= 0; j--) {
         printf("%d ", digit[j]);
     }
@@ -94,7 +94,7 @@ void numbersOnEachDigit(int n) {
 
 /**
  * 判断输入的整数是不是质数
-*/
+ */
 bool isprime(long int num) {
     int divisor = 2;
     while (num % divisor++ == 0) {
@@ -102,6 +102,20 @@ bool isprime(long int num) {
     }
     return true;
 }
+
+bool isprimeFast(long double num) {
+    double divisor = 2.0;
+    while ((sqrt(num) + 1.0) % divisor++ == 0) {
+        return false;
+    }
+    return true;
+}
+
+bool isPrimeRecur(long int num) {
+
+}
+
 int main(void) {
     printf("%d", isprime(2));
+    printf("%d", isprimeFast(2));
 }

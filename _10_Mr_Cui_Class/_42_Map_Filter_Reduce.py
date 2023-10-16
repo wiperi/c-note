@@ -8,6 +8,7 @@ def myMap(func, alist):
         return alist
     return concat([func(head(alist))], myMap(func, tail(alist)))
 
+
 if False:
     print(list(map(lambda x: x * 2, [1, 2, 3])))
     print(list(myMap(lambda x: x * 2, [1, 2, 3])))
@@ -22,6 +23,7 @@ def myFilter(func, alist):
     else:
         return myFilter(func, tail(alist))
 
+
 if False:
     print(list(filter(lambda x: x < 60, [66, 59, 60, 66, 78])))
     print(list(myFilter(lambda x: x < 60, [66, 59, 60, 66, 78])))
@@ -34,6 +36,20 @@ def myReduce(func, alist):
     if len(alist) == 1:
         return head(alist)
     return func(head(alist), myReduce(func, tail(alist)))
+
+
+# 顺序反了，这是folder right
+def myReduce(func, alist):
+    if tail(alist) == []:
+        return head(alist)
+    return func(head(alist), myReduce(func, tail(alist)))
+
+
+def myReduce(func, alist):
+    if tail(alist) == []:
+        return head(alist)
+    return func(head(alist), myReduce(func, tail(alist)))
+
 
 if False:
     print(reduce(lambda x, y: x + y, [1, 2, 3, 4]))
