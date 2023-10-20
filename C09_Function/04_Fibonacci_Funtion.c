@@ -11,21 +11,24 @@
     第一次计算出f(2)和f(3)的和；
 */
 int fibonacci_by_looping(int n) {
-    int l_value = 0;
-    int r_value = 1;
-    int result;
     if (n == 0) {
         return 0;
-    } else if (n == 1) {
-        return 1;
-    } else {
-        for (int i = 0; i < n; i++) {
-            result = l_value + r_value;
-            l_value = r_value;
-            r_value = result;
-        }
     }
-    return result;
+    if (n == 1) {
+        return 1;
+    }
+
+    int left = 0;
+    int right = 1;
+    int ret = 0;
+
+    for (int i = 2; i <= n; i++) {
+        ret = left + right;
+        left = right;
+        right = ret;
+    }
+
+    return ret;
 }
 
 /*
@@ -33,7 +36,6 @@ int fibonacci_by_looping(int n) {
     根据Fibonacci函数的定义，F(n) = F(n - 1) + F(n - 2)
 */
 int fibonacci(int n) {
-
     if (n == 0) {
         return 0;
     }
@@ -47,7 +49,6 @@ int fibonacci(int n) {
 
 int main(void) {
     for (int i = 1; i <= 10; i++) {
-        printf("%d\n", fibonacci(i));
+        printf("%d\n", fibonacci_by_looping(i));
     }
 }
-

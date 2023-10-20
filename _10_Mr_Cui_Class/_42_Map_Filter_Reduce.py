@@ -41,7 +41,7 @@ def myReduce(func, alist, init=None):
     return myReduce(func, tail(alist), nextInit)
 
 
-# 计算顺序反了，reduce是从左往右计算，这是从右往左，这个错误版本也叫folder right，从右侧folder，reduce也叫folder left
+# reduce错误版本，计算顺序反了，reduce是从左往右计算，这是从右往左，这个错误版本也叫folder right，从右侧folder，reduce也叫folder left
 def myReduceFirstTryWrong(func, alist):
     if tail(alist) == []:
         return head(alist)

@@ -93,7 +93,7 @@ void numbersOnEachDigit(int n) {
 }
 
 /**
- * 判断输入的整数是不是质数
+ * 判断输入的整数是不是质数, 质数只有一对约数，1和本身
  */
 bool isPrime(long int num) {
     int divisor = 2;
@@ -103,6 +103,8 @@ bool isPrime(long int num) {
     return true;
 }
 
+// 一个数 n 的一对约数 (x1, x2) 满足，(1 <= x1 <= sqrt(n)) && (sqrt(n) <= x2 <= n)，所以只需要判断在区间(1,
+// sqrt(n)]中是否存在n的约数，即可判断n是不是质数
 bool isPrimeFast(int n) {
     if (n <= 1) {
         return false; // 1和负数不是质数
@@ -127,11 +129,30 @@ bool isPrimeFast(int n) {
     return true;
 }
 
-bool isPrimeRecursive(long int num) {
-    
+bool isPrimeRecur(long int num, long int div) {
+    if (num <= 0) { // edge case
+        return false;
+    }
+
+    if (div == 0) { // initialize
+        div = (int)sqrt(num);
+    }
+
+    if (div <= 1) { // base case
+        return true;
+    }
+
+    if (num % div == 0) { // recursive call
+        return false;
+    } else {
+        return isPrimeRecur(num, div - 1);
+    }
 }
 
 int main(void) {
-    printf("%d\n", isPrime(2));
-    printf("%d\n", isPrimeFast(2));
+    for (int i = 0; i < 100; i++) {
+        if (isPrimeRecur(i, 0)) {
+            printf("%d ", i);
+        }
+    }
 }
