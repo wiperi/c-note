@@ -8,5 +8,11 @@ def tail(alist: list):
     return alist[1:]
 
 
-def concat(a: list, b: list) -> list:
-    return a + b
+def concat(a, b):
+    if isinstance(a, list):
+        return a + b
+    else:
+        alist = [1]
+        alist[0] = a
+        return alist + b
+        
