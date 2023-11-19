@@ -11,17 +11,25 @@ from _03_Basis_Functions import head, tail, concat
 """
 
 
+# 归并排序
+def mergeSort(arr):
+    if len(arr) == 1:  # baes case
+        return arr
+    left, right = split(arr)
+    return merge(mergeSort(left), mergeSort(right))
+
+
 # 合并两个数组
-def mergeRecur(l, r):
+def merge(l, r):
     if l == []:
         return r
     if r == []:
         return l
 
     if head(l) < head(r):
-        return concat(head(l), mergeRecur(tail(l), r))
+        return concat(head(l), merge(tail(l), r))
     else:
-        return concat(head(r), mergeRecur(l, tail(r)))
+        return concat(head(r), merge(l, tail(r)))
 
 
 # 列表对半切片
@@ -30,13 +38,5 @@ def split(arr):
     return arr[0 : mid + 1], arr[mid + 1 : len(arr)]
 
 
-# 递归，自顶向下的归并
-def mergeSortRecur(arr):
-    if len(arr) == 1:  # baes case
-        return arr
-    left, right = split(arr)
-    return mergeRecur(mergeSortRecur(left), mergeSortRecur(right))
-
-
 if False:
-    print(mergeSortRecur([7, 5, 4, 3, 1, 4, 6, 9, 8, 0]))
+    print(mergeSort([7, 5, 4, 3, 1, 4, 6, 9, 8, 0]))
