@@ -12,11 +12,11 @@ int multiply(int a, int b) {
 
 // 尾部调用优化 TCO(tail call optimation)
 // 通过在参数中加入累加器，将原本多层的stack占用，优化到只占用一层stack
-int multi(int a, int b, int acc) {
+int multiplyBetter(int a, int b, int accumulator) {
     if (b == 0) {
-        return acc;
+        return accumulator;
     } else {
-        return multi(a, b - 1, acc + a);
+        return multiplyBetter(a, b - 1, accumulator + a);
     }
 }
 
@@ -30,5 +30,5 @@ int cube(int a) {
 
 // test module
 int main(void) {
-    printf("%d", multi(3, 4, 0));
+    printf("%d", multiplyBetter(3, 4, 0));
 }
