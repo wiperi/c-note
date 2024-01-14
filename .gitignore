@@ -1,11 +1,3 @@
-# vscode settings #
-###################
-.vscode/
 *.json
 
-# .exe created #
-################
 bin/
-
-*.pyc
-*.cpython-311.pyc
