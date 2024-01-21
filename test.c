@@ -231,7 +231,7 @@ void the99(void) {
     }
 }
 
-void scan(void) {
+void countWord_scan(void) {
     char c;
     int i = 0;
     char str[100];
@@ -245,5 +245,5 @@ void scan(void) {
 }
 
 int main(void) {
-    scan();
+    countWord_scan();
 }
