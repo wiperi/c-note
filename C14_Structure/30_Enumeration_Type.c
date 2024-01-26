@@ -5,8 +5,8 @@
 #include <string.h> // 提供 strcmp()、strchr()函数的原型
 
 char* s_gets(char* st, int n);
-enum spectrum { red, orange, yellow, green, blue, violet };
-const char* colors[] = {"red", "orange", "yellow", "green", "blue", "violet"};
+enum spectrum { red, orange, yellow, green, blue, violet };                     // enum用于将：变量名 映射到 整数
+const char* colors[] = {"red", "orange", "yellow", "green", "blue", "violet"};  // 字符串数组用于将：整数 映射到 字符串形式的变量名
 #define LEN 30
 
 /**
