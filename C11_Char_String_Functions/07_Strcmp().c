@@ -3,7 +3,7 @@
 // strcmp函数比较两个字符串，逐个字符进行比较，将第一个字符串中的字符的ASCII值减去第二个的值，然后是0那就比较下一个字符
 
 #include <stdio.h>
-#include <string.h>  // strcmp()函数的原型在该头文件中
+#include <string.h> // strcmp()函数的原型在该头文件中
 #define ANSWER "Grant"
 #define SIZE 40
 char* s_gets(char* st, int n);
@@ -23,11 +23,15 @@ char* s_gets(char* st, int n) {
     int i = 0;
     ret_val = fgets(st, n, stdin);
     if (ret_val) {
-        while (st[i] != '\n' && st[i] != '\0') i++;
-        if (st[i] == '\n')
+        while (st[i] != '\n' && st[i] != '\0') {
+            i++;
+        }
+        if (st[i] == '\n') {
             st[i] = '\0';
-        else
-            while (getchar() != '\n') continue;
+        } else
+            while (getchar() != '\n') {
+                continue;
+            }
     }
     return ret_val;
 }
