@@ -3,9 +3,9 @@
 #include <stdio.h>
 #define STLEN 10
 int main(void) {
-    char words[STLEN];
+    char words[STR_LEN];
     puts("Enter strings (empty line to quit):");
-    while (fgets(words, STLEN, stdin) != NULL && words[0] != '\n') // 如果没有读到文件结尾而且读取到的不是空行，则真
+    while (fgets(words, STR_LEN, stdin) != NULL && words[0] != '\n') // 如果没有读到文件结尾而且读取到的不是空行，则真
         fputs(words, stdout);
     puts("Done.");
     return 0;

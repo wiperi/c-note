@@ -6,6 +6,9 @@
 终端输入：
 $ C\bin\03_CommandLineArgument.exe 1 2 3
 
+argc = 参数数量 + 1
+argv[0]总是 = 文件名
+
 终端输出：
 argc: 4
 argv:
@@ -16,7 +19,6 @@ C:\Users\Boris\Documents\10 MyGithub\C\bin\03_CommandLineArgument.exe
 */
 int main(int argc, char *argv[]) {
 
-    // 默认情况下，argc = 1，argv[0]为exe文件的路径
     printf("argc: %d\n", argc);
 
     printf("argv: \n");
