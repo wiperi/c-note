@@ -1,3 +1,13 @@
+//
+// Name: Invert List
+//
+// Introduction:
+// This program test the Linked List implementation by inverting the list.
+// Compile this file with s010_Linked_List.c
+//
+// Authors:
+// Tianyang Chen (z5567323@unsw.edu.au)
+//
 #include "s010_Linked_List.h"
 #include <stdio.h>
 
@@ -18,8 +28,3 @@ int main() {
     head = invertList(head);
     printList(head);
 }
-
-
-
-
-
